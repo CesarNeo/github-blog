@@ -2,6 +2,13 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    borderColor: (theme) => ({
+      ...theme('colors'),
+      transparent: 'transparent',
+    }),
+    boxShadow: {
+      'base-card': '0px 2px 28px rgba(0, 0, 0, 0.2)',
+    },
     colors: {
       blue: '#3294F8',
       'base-title': '#E7EDF4',
