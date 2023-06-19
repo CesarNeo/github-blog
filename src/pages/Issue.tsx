@@ -17,11 +17,11 @@ export function Issue() {
     enabled: !!issueNumber,
   })
 
-  const timePublishedFromNow = dayjs(issue?.updated_at).fromNow()
-
   if (isLoading) {
     return <div>Loading...</div>
   }
+
+  const timePublishedFromNow = dayjs(issue?.updated_at).fromNow()
 
   return (
     <>

@@ -21,3 +21,7 @@ export type GithubIssue = {
   }
   comments: number
 }
+
+export type ListGithubIssue = {
+  items: GithubIssue[]
+}
