@@ -4,7 +4,7 @@ import githubBlogLogo from '../assets/logo.svg'
 
 export function DefaultLayout() {
   return (
-    <main className="h-screen ">
+    <main className="h-screen">
       <header className="relative -z-10 flex h-[18.5rem] bg-[url(../src/assets/cover.svg)] bg-cover bg-center bg-no-repeat">
         <img
           src={githubBlogLogo}
