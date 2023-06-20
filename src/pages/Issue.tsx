@@ -5,6 +5,7 @@ import { getMyRepositoryIssue } from '../services/http/github'
 import { useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import dayjs from 'dayjs'
+import { IssueSkeleton } from '../components/IssueSkeleton'
 
 export function Issue() {
   const { issueNumber } = useParams<{ issueNumber: string }>()
@@ -18,7 +19,7 @@ export function Issue() {
   })
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <IssueSkeleton />
   }
 
   const timePublishedFromNow = dayjs(issue?.updated_at).fromNow()

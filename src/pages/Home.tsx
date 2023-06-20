@@ -7,6 +7,7 @@ import { ContainerStatus } from '../components/ContainerStatus'
 import { Link } from '../components/Link'
 import { PostCard } from '../components/PostCard'
 import useDebounce from '../hooks/debounce'
+import { HomeSkeleton } from '../components/HomeSkeleton'
 
 export function Home() {
   const { debouncedValue: search, updateValue } = useDebounce('', 500)
@@ -18,15 +19,16 @@ export function Home() {
     refetchOnWindowFocus: false,
   })
 
-  const { data: issues, isLoading: issuesIsLoading } = useQuery({
+  const { data: issues } = useQuery({
     queryKey: ['github-issues', search],
     queryFn: () => listMyRepositoryIssues(search),
     cacheTime: 1000 * 60 * 60 * 24, // 24 hours
     refetchOnWindowFocus: false,
+    keepPreviousData: true,
   })
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <HomeSkeleton />
   }
 
   const publications =
@@ -87,14 +89,6 @@ export function Home() {
       </div>
 
       <div className="mt-12 grid gap-8 md:grid-cols-2">
-        {issuesIsLoading && (
-          <div className="h-64">
-            <h2 className="text-lg font-bold text-base-subtitle">
-              Carregando...
-            </h2>
-          </div>
-        )}
-
         {issues?.items?.length === 0 && (
           <div className="h-64">
             <h2 className="text-lg font-bold text-base-subtitle">
