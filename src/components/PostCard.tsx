@@ -20,7 +20,7 @@ export const PostCard: FunctionComponent<Props> = ({ issue }) => {
       href={`/issues/${issue.number}`}
       className="rounded-xl border-2 border-transparent bg-base-post p-8 transition-all hover:border-base-label"
     >
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col items-start justify-between md:flex-row">
         <strong className="max-w-[17.6875rem] text-xl text-base-title">
           {issue.title}
         </strong>

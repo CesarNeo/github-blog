@@ -37,14 +37,14 @@ export function Home() {
 
   return (
     <>
-      <div className="grid grid-cols-[auto,1fr] gap-8 rounded-xl bg-base-profile px-10 py-8 shadow-base-card">
+      <div className="flex flex-col items-center gap-8 rounded-xl bg-base-profile px-5 py-5 shadow-base-card md:grid md:grid-cols-[auto,1fr] md:px-10 md:py-8">
         <img
           src={githubProfile?.avatar_url}
           alt={githubProfile?.name}
-          className="h-[9.25rem] w-[9.25rem] rounded-lg"
+          className="h-[4.625rem] w-[4.625rem] rounded-lg md:h-[9.25rem] md:w-[9.25rem]"
         />
         <div>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col items-center justify-between md:flex-row">
             <h1 className="text-2xl font-bold text-base-title">
               {githubProfile?.name}
             </h1>
@@ -57,11 +57,11 @@ export function Home() {
               Github
             </Link>
           </div>
-          <p className="mt-2 leading-relaxed text-base-text">
+          <p className="mt-2 text-center leading-relaxed text-base-text md:text-left">
             {githubProfile?.bio}
           </p>
 
-          <div className="mt-6 flex items-center gap-6">
+          <div className="mt-6 grid grid-cols-2 gap-2 md:flex md:flex-row md:items-center md:gap-6">
             <ContainerStatus status={githubProfile!.login} icon="github" />
             <ContainerStatus status={githubProfile!.company} icon="company" />
             <ContainerStatus
@@ -86,7 +86,7 @@ export function Home() {
         />
       </div>
 
-      <div className="mt-12 grid grid-cols-2 gap-8">
+      <div className="mt-12 grid gap-8 md:grid-cols-2">
         {issuesIsLoading && (
           <div className="h-64">
             <h2 className="text-lg font-bold text-base-subtitle">

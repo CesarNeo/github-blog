@@ -40,7 +40,7 @@ export function Issue() {
           {issue!.title}
         </h1>
 
-        <div className="mt-2 flex items-center gap-6">
+        <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2 md:mt-2 md:flex md:flex-row md:items-center md:gap-6">
           <ContainerStatus status={issue!.user.login} icon="github" />
           <ContainerStatus status={timePublishedFromNow} icon="published" />
           <ContainerStatus
@@ -52,7 +52,7 @@ export function Issue() {
         </div>
       </div>
 
-      <ReactMarkdown className="prose prose-xl w-full max-w-full px-8 py-10 prose-headings:text-base-title prose-p:text-base-text prose-a:text-blue prose-strong:text-base-text">
+      <ReactMarkdown className="prose w-full max-w-full px-8 py-10 md:prose-xl prose-headings:text-base-title prose-p:text-base-text prose-a:text-blue prose-strong:text-base-text">
         {issue!.body}
       </ReactMarkdown>
     </>
