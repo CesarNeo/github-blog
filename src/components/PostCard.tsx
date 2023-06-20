@@ -6,8 +6,13 @@ type Props = {
   issue: GithubIssue
 }
 
+const regexRemoveSpecialCharacters = /[!@#$%^&*()":{}|<>]/g
+
 export const PostCard: FunctionComponent<Props> = ({ issue }) => {
-  const issueBodyExcerpt = issue.body.substring(0, 135).concat('...')
+  const issueBodyExcerpt = issue.body
+    .replace(regexRemoveSpecialCharacters, '')
+    .substring(0, 145)
+    .concat('...')
   const timePublishedFromNow = dayjs(issue.updated_at).fromNow()
 
   return (
